@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS&A Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Algo<span class="highlight">Wiz</span></h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-module="dashboard">
+                    <span class="icon">🏠</span> Dashboard
+                </a>
+
+                <!-- Sorting Group -->
+                <div class="nav-group">
+                    <div class="nav-item-header">
+                        <span class="icon">📊</span> Sorting Algorithms
+                    </div>
+                    <div class="nav-sub-group">
+                        <a href="#" class="nav-sub-item" data-module="sorting" data-sub="bubble">Bubble Sort</a>
+                        <a href="#" class="nav-sub-item" data-module="sorting" data-sub="selection">Selection Sort</a>
+                        <a href="#" class="nav-sub-item" data-module="sorting" data-sub="insertion">Insertion Sort</a>
+                        <a href="#" class="nav-sub-item" data-module="sorting" data-sub="merge">Merge Sort</a>
+                        <a href="#" class="nav-sub-item" data-module="sorting" data-sub="quick">Quick Sort</a>
+                    </div>
+                </div>
+
+                <!-- Searching Group -->
+                <div class="nav-group">
+
+                    <div class="nav-item-header">
+                        <span class="icon">🔍</span> Searching Algorithms
+                    </div>
+                    <div class="nav-sub-group">
+                        <a href="#" class="nav-sub-item" data-module="searching" data-sub="linear">Linear Search</a>
+                        <a href="#" class="nav-sub-item" data-module="searching" data-sub="binary">Binary Search</a>
+                    </div>
+                </div>
+
+                <!-- Linear Structures Group -->
+                <div class="nav-group">
+                    <h3>Linear Structures</h3>
+                    <!-- Linked List -->
+                    <div class="nav-item-header">
+                        <span class="icon">🔗</span> Linked Lists
+                    </div>
+                    <div class="nav-sub-group">
+                        <a href="#" class="nav-sub-item" data-module="linked-list" data-sub="singly">Singly Linked
+                            List</a>
+                        <a href="#" class="nav-sub-item" data-module="linked-list" data-sub="doubly">Doubly Linked
+                            List</a>
+                        <a href="#" class="nav-sub-item" data-module="linked-list" data-sub="circular">Circular Linked
+                            List</a>
+                    </div>
+
+                    <!-- Lists -->
+                    <div class="nav-item-header">
+                        <span class="icon">📝</span> Lists
+                    </div>
+                    <div class="nav-sub-group">
+                        <a href="#" class="nav-sub-item" data-module="lists" data-sub="static">Static Array</a>
+                        <a href="#" class="nav-sub-item" data-module="lists" data-sub="dynamic">Dynamic Array</a>
+                    </div>
+
+                    <!-- Stacks & Queues -->
+                    <div class="nav-item-header">
+                        <span class="icon">📚</span> Stacks & Queues
+                    </div>
+                    <div class="nav-sub-group">
+                        <a href="#" class="nav-sub-item" data-module="stacks-queues" data-sub="stack">Stack (LIFO)</a>
+                        <a href="#" class="nav-sub-item" data-module="stacks-queues" data-sub="queue">Queue (FIFO)</a>
+                    </div>
+                </div>
+
+                <!-- Trees Group -->
+                <div class="nav-group">
+
+                    <div class="nav-item-header">
+                        <span class="icon">🌳</span> Trees
+                    </div>
+                    <div class="nav-sub-group">
+                        <a href="#" class="nav-sub-item" data-module="trees" data-sub="bst">Binary Search Tree</a>
+                        <a href="#" class="nav-sub-item" data-module="trees" data-sub="avl">AVL Tree</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-bar">
+                <h2 id="page-title">Dashboard</h2>
+                <div class="actions">
+                    <button class="btn btn-outline" id="theme-toggle">🌙</button>
+                </div>
+            </header>
+
+            <!-- Dynamic Views -->
+            <div id="view-container">
+                <!-- Dashboard View -->
+                <section id="dashboard-view" class="view active">
+                    <div class="hero-section">
+                        <h1>Master Data Structures & Algorithms</h1>
+                        <p>Interactive step-by-step visualizations to help you understand the core concepts.</p>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <!-- Sorting -->
+                        <div class="dashboard-group">
+                            <h2 class="group-title">Sorting Algorithms</h2>
+                            <div class="info-grid" data-category="sorting">
+                                <!-- Dynamic Content -->
+                            </div>
+                        </div>
+
+                        <!-- Searching -->
+                        <div class="dashboard-group">
+                            <h2 class="group-title">Searching Algorithms</h2>
+                            <div class="info-grid" data-category="searching">
+                                <!-- Dynamic Content -->
+                            </div>
+                        </div>
+
+                        <!-- Linear Structures -->
+                        <div class="dashboard-group">
+                            <h2 class="group-title">Linear Structures</h2>
+                            <div class="info-grid" data-category="linked-list,lists,stacks-queues">
+                                <!-- Dynamic Content -->
+                            </div>
+                        </div>
+
+                        <!-- Trees -->
+                        <div class="dashboard-group">
+                            <h2 class="group-title">Trees</h2>
+                            <div class="info-grid" data-category="trees">
+                                <!-- Dynamic Content -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sorting Module View -->
+                <section id="sorting-view" class="view">
+
+                    <div class="module-header">
+                        <h2 id="sorting-title">Sorting Algorithms</h2>
+                    </div>
+                    <div class="module-controls">
+                        <!-- Algorithm Select Removed (Handled by Sidebar) -->
+                        <div class="control-group">
+                            <label>Size</label>
+                            <input type="range" id="array-size" min="5" max="50" value="20">
+                        </div>
+                        <div class="control-group">
+                            <label>Speed</label>
+                            <input type="range" id="anim-speed" min="1" max="100" value="50">
+                        </div>
+                        <div class="control-actions">
+                            <button class="btn btn-primary" id="btn-generate">Generate</button>
+                            <button class="btn btn-success" id="btn-play">Play</button>
+                            <button class="btn btn-warning" id="btn-pause">Pause</button>
+                            <button class="btn btn-danger" id="btn-reset">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="visualization-container" id="sorting-canvas">
+                        <!-- Bars will be generated here -->
+                    </div>
+
+                    <div class="param-panel">
+                        <div id="algo-info" class="log-panel">
+                            <h4>Log</h4>
+                            <div id="step-log" class="logs">Ready to start...</div>
+                        </div>
+                        <div class="stats-panel">
+                            <div class="stat-item">
+                                <span class="label">Comparisons:</span>
+                                <span class="value" id="stats-comparisons">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Swaps:</span>
+                                <span class="value" id="stats-swaps">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Searching Module View -->
+                <section id="searching-view" class="view">
+
+                    <div class="module-header">
+                        <h2 id="searching-title">Searching Algorithms</h2>
+                    </div>
+                    <div class="module-controls">
+
+                        <div class="control-group">
+                            <label>Size</label>
+                            <input type="range" id="search-array-size" min="5" max="40" value="20">
+                        </div>
+                        <div class="control-group">
+                            <label>Target</label>
+                            <input type="number" id="search-target" placeholder="Value" style="width: 80px;">
+                        </div>
+                        <div class="control-group">
+                            <label>Speed</label>
+                            <input type="range" id="search-speed" min="1" max="100" value="50">
+                        </div>
+                        <div class="control-actions">
+                            <button class="btn btn-primary" id="btn-search-generate">Generate</button>
+                            <button class="btn btn-success" id="btn-search-play">Search</button>
+                            <button class="btn btn-warning" id="btn-search-pause">Pause</button>
+                            <button class="btn btn-danger" id="btn-search-reset">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="visualization-container" id="searching-canvas"
+                        style="align-items: center; flex-wrap: wrap; gap: 10px; align-content: center;">
+                        <!-- Boxes will be generated here -->
+                    </div>
+
+                    <div class="param-panel">
+                        <div id="search-algo-info" class="log-panel">
+                            <h4>Log</h4>
+                            <div id="search-step-log" class="logs">Ready to search...</div>
+                        </div>
+                        <div class="stats-panel">
+                            <div class="stat-item">
+                                <span class="label">Comparisons:</span>
+                                <span class="value" id="stats-search-comparisons">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Status:</span>
+                                <span class="value" id="stats-search-status">Idle</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Linked List Module View -->
+                <section id="linked-list-view" class="view">
+
+                    <div class="module-header">
+                        <h2 id="linked-list-title">Linked Lists</h2>
+                    </div>
+                    <div class="module-controls">
+
+                        <div class="control-group">
+                            <label>Operation</label>
+                            <select id="ll-op-select">
+                                <option value="insert-head">Insert Head</option>
+                                <option value="insert-tail">Insert Tail</option>
+                                <option value="insert-index">Insert at Index</option>
+                                <option value="delete-head">Delete Head</option>
+                                <option value="delete-tail">Delete Tail</option>
+                                <option value="delete-index">Delete at Index</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Value</label>
+                            <input type="number" id="ll-value" placeholder="Val" style="width: 70px;">
+                        </div>
+                        <div class="control-group">
+                            <label>Index</label>
+                            <input type="number" id="ll-index" placeholder="Idx" value="0" style="width: 60px;">
+                        </div>
+                        <div class="control-actions">
+                            <button class="btn btn-primary" id="btn-ll-run">Run</button>
+                            <button class="btn btn-outline" id="btn-ll-random">Random</button>
+                            <button class="btn btn-danger" id="btn-ll-reset">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="visualization-container" id="ll-canvas"
+                        style="justify-content: flex-start; align-items: center; overflow-x: auto; padding-left: 50px;">
+                        <!-- Nodes generated here -->
+                    </div>
+
+                    <div class="param-panel">
+                        <div id="ll-algo-info" class="log-panel">
+                            <h4>Log</h4>
+                            <div id="ll-step-log" class="logs">Ready...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lists Module View -->
+                <section id="lists-view" class="view">
+
+                    <div class="module-header">
+                        <h2 id="lists-title">Static vs Dynamic Lists</h2>
+                    </div>
+                    <div class="module-controls">
+
+                        <div class="control-group">
+                            <label>Capacity/Size</label>
+                            <input type="number" id="list-capacity" value="5" min="1" max="20" style="width: 60px;">
+                        </div>
+                        <div class="control-group">
+                            <label>Value</label>
+                            <input type="number" id="list-value" placeholder="Val" style="width: 70px;">
+                        </div>
+                        <div class="control-group">
+                            <label>Index</label>
+                            <input type="number" id="list-index" placeholder="Idx" value="0" style="width: 60px;">
+                        </div>
+                        <div class="control-actions">
+                            <button class="btn btn-primary" id="btn-list-add">Add/Set</button>
+                            <button class="btn btn-warning" id="btn-list-get">Get</button>
+                            <button class="btn btn-danger" id="btn-list-remove">Remove</button>
+                            <button class="btn btn-outline" id="btn-list-random">Random</button>
+                            <button class="btn btn-outline" id="btn-list-reset">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="visualization-container" id="lists-canvas"
+                        style="flex-direction: column; align-items: center; justify-content: center;">
+                        <!-- Grid generated here -->
+                    </div>
+
+                    <div class="param-panel">
+                        <div id="list-algo-info" class="log-panel">
+                            <h4>Log</h4>
+                            <div id="list-step-log" class="logs">Ready...</div>
+                        </div>
+                        <div class="stats-panel">
+                            <div class="stat-item">
+                                <span class="label">Size:</span>
+                                <span class="value" id="stats-list-size">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Capacity:</span>
+                                <span class="value" id="stats-list-capacity">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Stacks & Queues Module View -->
+                <section id="stacks-queues-view" class="view">
+
+                    <div class="module-header">
+                        <h2 id="stacks-queues-title">Stacks & Queues</h2>
+                    </div>
+                    <div class="module-controls">
+
+                        <div class="control-group">
+                            <label>Value</label>
+                            <input type="number" id="sq-value" placeholder="Val" style="width: 70px;">
+                        </div>
+                        <div class="control-actions">
+                            <button class="btn btn-primary" id="btn-sq-push">Push/Enqueue</button>
+                            <button class="btn btn-danger" id="btn-sq-pop">Pop/Dequeue</button>
+                            <button class="btn btn-warning" id="btn-sq-peek">Peek</button>
+                            <button class="btn btn-outline" id="btn-sq-random">Random</button>
+                            <button class="btn btn-outline" id="btn-sq-reset">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="visualization-container" id="sq-canvas"
+                        style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                        <!-- Container for Stack or Queue items -->
+                        <div id="sq-container-box" class="sq-container stack-container">
+                            <!-- Items -->
+                        </div>
+                    </div>
+
+                    <div class="param-panel">
+                        <div id="sq-algo-info" class="log-panel">
+                            <h4>Log</h4>
+                            <div id="sq-step-log" class="logs">Ready...</div>
+                        </div>
+                        <div class="stats-panel">
+                            <div class="stat-item">
+                                <span class="label">Count:</span>
+                                <span class="value" id="stats-sq-count">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Top/Front:</span>
+                                <span class="value" id="stats-sq-top">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Trees Module View -->
+                <section id="trees-view" class="view">
+
+                    <div class="module-header">
+                        <h2 id="trees-title">Trees</h2>
+                    </div>
+                    <div class="module-controls">
+
+                        <div class="control-group">
+                            <label>Value</label>
+                            <input type="number" id="tree-value" placeholder="Val" style="width: 70px;">
+                        </div>
+                        <div class="control-actions">
+                            <button class="btn btn-primary" id="btn-tree-insert">Insert</button>
+                            <button class="btn btn-warning" id="btn-tree-find">Find</button>
+                            <button class="btn btn-danger" id="btn-tree-delete">Delete</button>
+                            <button class="btn btn-outline" id="btn-tree-traverse">Traverse</button>
+                            <button class="btn btn-outline" id="btn-tree-random">Random</button>
+                            <button class="btn btn-outline" id="btn-tree-reset">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="visualization-container" id="tree-canvas"
+                        style="position: relative; overflow: hidden; min-height: 500px; background: var(--bg-secondary);">
+                        <!-- SVG Layer for lines -->
+                        <svg id="tree-svg-layer"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></svg>
+                        <!-- Nodes appended here as Absolute Divs -->
+                    </div>
+
+                    <div class="param-panel">
+                        <div id="tree-algo-info" class="log-panel">
+                            <h4>Log</h4>
+                            <div id="tree-step-log" class="logs">Ready...</div>
+                        </div>
+                        <div class="stats-panel">
+                            <div class="stat-item">
+                                <span class="label">Nodes:</span>
+                                <span class="value" id="stats-tree-nodes">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Height:</span>
+                                <span class="value" id="stats-tree-height">0</span>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+            </section>
+    </div>
+    </main>
+    </div>
+
+
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Algorithm Title</h2>
+                <button class="close-modal" onclick="app.closeInfo()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-desc">Description goes here...</p>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <span class="label">Best Case</span>
+                        <span class="value" id="comp-best">-</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="label">Average Case</span>
+                        <span class="value" id="comp-avg">-</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="label">Worst Case</span>
+                        <span class="value" id="comp-worst">-</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="label">Space</span>
+                        <span class="value" id="comp-space">-</span>
+                    </div>
+                </div>
+
+                <div class="usage-section">
+                    <h4>Real World Usage</h4>
+                    <p id="modal-usage">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
