@@ -17,6 +17,8 @@ export class StackQueueVisualizer {
         this.statCount = document.getElementById('stats-sq-count');
         this.statTop = document.getElementById('stats-sq-top');
 
+        this.currentType = 'stack'; // default
+
         this.data = []; // Internal storage
 
         this.bindEvents();
@@ -127,7 +129,7 @@ export class StackQueueVisualizer {
             return;
         }
 
-        const type = this.typeSelect.value;
+        const type = this.currentType;
         const items = this.containerBox.children;
         let targetItem;
         let val;
@@ -157,7 +159,7 @@ export class StackQueueVisualizer {
             return;
         }
 
-        const type = this.typeSelect.value;
+        const type = this.currentType;
         const items = this.containerBox.children;
         let targetItem;
 
